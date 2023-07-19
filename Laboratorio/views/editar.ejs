@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laboratorio</title>
+    <!-- Estilos -->
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/styles-editar.css" />
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Serif:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header><h1>Laboratorio pacientes y Doctores</h1></header>
+    <hr class="divisor-header" />
+    <main id="main">
+      <h2>Editar Datos</h2>
+      <div class="main-ingresos" id="main-ingresos">
+
+        <% if (paciente) {%>
+        <div class="main-personas" id="main-personas">
+          <h3>Paciente</h3>
+          <form id="formularioPaciente" name="formulario-paciente" onsubmit="return validarDatosPaciente()"  action="/actualizar" method="POST">
+            <input id="id" name="id" value="<%= paciente.id %>" hidden>
+            <!--Nombre-->
+            <label for="nombre">Nombre</label>
+
+            <input
+              class="nombre-p"
+              id="nombre"
+              type="text"
+              placeholder="Nombre"
+              name="nombre"
+              value="<%= paciente.nombre %>"
+            />
+            <!-- Apellido -->
+            <label for="apellido">Apellido</label>
+            <input
+              class="apellido-p"
+              id="apellido"
+              type="text"
+              placeholder="Apellido"
+              name="apellido"
+              value="<%= paciente.apellido %>"
+            />
+            <!-- Cedula -->
+            <label for="cedula">Cedula</label>
+            <input
+              type="text"
+              class="cedula-p"
+              id="cedula"
+              placeholder="Cedula"
+              name="cedula"
+              value="<%= paciente.cedula %>"
+            />
+
+            <!-- Edad -->
+            <label for="edad ">Fecha de Nacimiento</label>
+            <input type="date" id="edad" name="edad"
+            />
+            <!-- Telefono -->
+            <label for="tel">Telefono</label>
+            <input type="tel"  id="tel" name="tel" placeholder="Telefono" value="<%= paciente.telefono %>" />
+            
+            <button type="submit" class="boton-formulario"  id="boton-envio-paciente" >Guardar</button>
+            <a href="/"  class="boton-formulario"  >Cancelar</a>
+          </form>
+        </div>
+        <% }%>
+        
+      </div>
+    </main>
+    <hr> <hr>
+    
+    
+    
+
+     <script src="/js/scripts.js"></script>
+    
+  </body>
+</html>

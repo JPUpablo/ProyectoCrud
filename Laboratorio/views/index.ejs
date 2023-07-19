@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laboratorio</title>
+    <!-- Estilos -->
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/css/styles-datos.css" />
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Serif:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header><h1>Laboratorio pacientes y Doctores</h1></header>
+    <hr class="divisor-header" />
+    <div class="botones-cambio">
+      <a href="/doctores">Doctores</a>
+      <a href="/citas">Citas</a>
+    </div>
+    
+    <main>
+      <div class="contenedor-datos">
+        <div class="datos-pacientes" id="datos-pacientes">
+          <table>
+            <thead>
+              <tr>
+                <th colspan="7">Pacientes</th>
+              </tr>
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Cedula</th>
+                <th>Edad</th>
+                <th>Telefono</th>
+                <th>Consultas</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% results.forEach((paciente)=>{ %>
+
+              <tr>
+                <td><%= paciente.id %></td>
+                <td><%= paciente.nombre %></td>
+                <td><%= paciente.apellido %></td>
+                <td><%= paciente.cedula %></td>
+                <td><%= paciente.edad %></td>
+                <td><%= paciente.telefono %></td>
+                
+                <td>
+                  <a href="/editar/<%= paciente.id %>">Editar</a>
+
+                  <a href="/borrar/<%= paciente.id %>">Borrar</a>
+                  <hr />
+                </td>
+              </tr>
+
+              <% }) %>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="7">
+                  <a class="create-button" href="/crear">Crear</a>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        
+      </div>
+    </main>
+
+   
+  </body>
+</html>

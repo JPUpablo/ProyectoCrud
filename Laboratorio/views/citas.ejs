@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laboratorio</title>
+    <!-- Estilos -->
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/css/styles-datos.css" />
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Serif:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header><h1>Laboratorio pacientes y Doctores</h1></header>
+    <hr class="divisor-header" />
+    
+    <div class="botones-cambio">
+      <a href="/">Pacientes</a>
+      <a href="/doctores">Doctores</a>
+    </div>
+
+    <main>
+      <div class="contenedor-datos">
+       
+        <div class="datos-doctores" id="datos-doctores">
+          <table>
+            <thead>
+              <tr>
+                <th colspan="6">Citas</th>
+              </tr>
+              <tr>
+                <th>id</th>
+                <th>Cedula</th>
+                <th>Especialidad</th>
+                <th>Doctor</th>
+                <th>Operaciones</th>
+                
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <% results.forEach((cita)=>{ %>
+
+                <td><%=cita.id %></td>
+                <td><%=cita.cedula %></td>
+                <td><%=cita.especialidad %></td>
+                <td><%=cita.doctor %></td>
+                
+                
+                
+                
+        
+
+                <td>
+                  
+
+                  <a href="/borrarCitas/<%= cita.id %>">Borrar</a>
+                  
+                  <hr />
+                </td>
+              </tr>
+              <% }) %>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="9">
+                  <a class="create-button" href="/crear">Crear</a>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        
+      </div>
+    </main>
+
+  </body>
+</html>

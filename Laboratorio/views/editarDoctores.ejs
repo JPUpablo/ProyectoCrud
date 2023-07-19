@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laboratorio</title>
+    <!-- Estilos -->
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/styles-editar.css" />
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Serif:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header><h1>Laboratorio pacientes y Doctores</h1></header>
+    <hr class="divisor-header" />
+    <main id="main">
+      <h2>Editar Datos</h2>
+      <div class="main-ingresos" id="main-ingresos">
+
+        <% if (doctor) {%>
+        <div class="main-personas">
+          <h3>Doctor</h3>
+          <form id="formularioDoctor" name="formularioDoctor" onsubmit="return validarDatosDoctor ()"  action="/actualizarDoctores" method="POST">
+            <input id="id" name="id" value="<%= doctor.id %>" hidden>
+
+            <!-- Nombre -->
+            <label for="nombre">Nombre</label>
+            <input
+              class="nombre"
+              id="nombreDoctor"
+              type="text"
+              placeholder="Nombre"
+              name="nombreDoctor"
+              value="<%= doctor.nombre %>"
+            />
+            <!-- Apellido -->
+            <label for="apellido"> Apellido</label>
+            <input
+              class="apellido"
+              id="apellidoDoctor"
+              type="text"
+              placeholder="Apellido"
+              name="apellidoDoctor"
+              value="<%= doctor.apellido %>"
+            />
+            <!-- Cedula -->
+            <label for="cedula">Cedula</label>
+            <input
+              type="text"
+              class="cedula"
+              id="cedulaDoctor"
+              placeholder="Cedula"
+              name="cedulaDoctor"
+              value="<%= doctor.cedula %>"
+            />
+            <!-- Especialidad -->
+            <label  id="rol" name="rol" for="especialidad">Especialidad</label>
+            <select  id="especialidadDoctor" class="epecialidad" name="especialidadDoctor">
+              <option value="especialidad">Especialidad</option>
+              <option <%= doctor.especialidad ="medicina-general" ? "select" : "" %> value="medicina-general">Medicina General</option>
+              <option <%= doctor.especialidad ="cardiologia" ? "select" : "" %> value="cardiologia">Cardiologia</option>
+              <option <%= doctor.especialidad ="medicina-interna" ? "select" : "" %> value="medicina-interna">Medicina Interna</option>
+              <option <%= doctor.especialidad ="dermatologia" ? "select" : "" %> value="dermatologia">Dermatologia</option>
+              <option <%= doctor.especialidad ="rehabilitacion-fisica" ? "select" : "" %> value="rehabilitacion-fisica">
+                Rehabilitacion Fisica
+              </option>
+              <option <%= doctor.especialidad ="psicologia" ? "select" : "" %> value="psicologia">Piscologia</option>
+              <option <%= doctor.especialidad ="odontologia" ? "select" : "" %> value="odontologia">Odontologia</option>
+              <option <%= doctor.especialidad ="radiologia" ? "select" : "" %> value="radiologia">Radiologia</option>
+            </select>
+            <!-- Consultorio -->
+            <label for="consultorio">Consultorio</label>
+            <input
+              type="text"
+              class="consultorio"
+              id="consultorioDoctor"
+              class="Consultorio"
+              placeholder="Consultorio"
+              name="consultorioDoctor"
+              value="<%= doctor.consultorio %>"
+            />
+            <!-- Correo -->
+            <label for="email">Correo Electronico</label>
+
+            <input
+              type="text"
+              class="email"
+              id="emailDoctor"
+              placeholder="Correo Electronico"
+              name="emailDoctor"
+              value="<%= doctor.email %>"
+            />
+            
+            <button type="submit" class="boton-formulario"  id="boton-envio-paciente" >Guardar</button>
+            <a href="/doctores"  class="boton-formulario"  >Cancelar</a> 
+
+          </form>
+        </div>
+        
+        <% }%>
+      </div>
+    </main>
+    <hr> <hr>
+    
+    
+    
+
+     <script src="/js/scripts.js"></script>
+    
+  </body>
+</html>

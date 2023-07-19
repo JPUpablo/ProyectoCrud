@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laboratorio</title>
+    <!-- Estilos -->
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Serif:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header><h1>Laboratorio pacientes y Doctores</h1></header>
+    <hr class="divisor-header" />
+    <main id="main">
+      <h2>Pacientes, doctores y asignador de citas</h2>
+      <div class="main-ingresos" id="main-ingresos">
+        <div class="main-personas" id="main-personas">
+          <h3>Paciente</h3>
+          <form id="formularioPaciente" name="formulario-paciente" onsubmit="return validarDatosPaciente()"  action="/guardar" method="POST">
+            <!--Nombre-->
+            <label for="nombre">Nombre</label>
+
+            <input
+              class="nombre-p"
+              id="nombre"
+              type="text"
+              placeholder="Nombre"
+              name="nombre"
+            />
+            <!-- Apellido -->
+            <label for="apellido">Apellido</label>
+            <input
+              class="apellido-p"
+              id="apellido"
+              type="text"
+              placeholder="Apellido"
+              name="apellido"
+            />
+            <!-- Cedula -->
+            <label for="cedula">Cedula</label>
+            <input
+              type="text"
+              class="cedula-p"
+              id="cedula"
+              placeholder="Cedula"
+              name="cedula"
+            />
+
+            <!-- Edad -->
+            <label for="edad ">Fecha de Nacimiento</label>
+            <input type="date" id="edad" name="edad"/>
+            <!-- Telefono -->
+            <label for="tel">Telefono</label>
+            <input type="tel"  id="tel" name="tel" placeholder="Telefono" />
+            
+            <button type="submit" class="boton-formulario"  id="boton-envio-paciente" >Enviar</button>
+            <a href="/"  class="boton-formulario"  >Cancelar</a>
+          </form>
+        </div>
+        <div class="main-personas">
+          <h3>Doctor</h3>
+          <form id="formularioDoctor" name="formularioDoctor" onsubmit="return validarDatosDoctor ()"  action="/guardarDoctor" method="POST">
+            <!-- Nombre -->
+            <label for="nombre">Nombre</label>
+            <input
+              class="nombre"
+              id="nombreDoctor"
+              type="text"
+              placeholder="Nombre"
+              name="nombreDoctor"
+            />
+            <!-- Apellido -->
+            <label for="apellido"> Apellido</label>
+            <input
+              class="apellido"
+              id="apellidoDoctor"
+              type="text"
+              placeholder="Apellido"
+              name="apellidoDoctor"
+            />
+            <!-- Cedula -->
+            <label for="cedula">Cedula</label>
+            <input
+              type="text"
+              class="cedula"
+              id="cedulaDoctor"
+              placeholder="Cedula"
+              name="cedulaDoctor"
+            />
+            <!-- Especialidad -->
+            <label  id="rol" name="rol" for="especialidad">Especialidad</label>
+            <select  id="especialidadDoctor" class="epecialidad" name="especialidadDoctor">
+              <option value="especialidad">Especialidad</option>
+              <option value="medicina-general">Medicina General</option>
+              <option value="cardiologia">Cardiologia</option>
+              <option value="medicina-interna">Medicina Interna</option>
+              <option value="dermatologia">Dermatologia</option>
+              <option value="rehabilitacion-fisica">
+                Rehabilitacion Fisica
+              </option>
+              <option value="psicologia">Piscologia</option>
+              <option value="odontologia">Odontologia</option>
+              <option value="radiologia">Radiologia</option>
+            </select>
+            <!-- Consultorio -->
+            <label for="consultorio">Consultorio</label>
+            <input
+              type="text"
+              class="consultorio"
+              id="consultorioDoctor"
+              class="Consultorio"
+              placeholder="Consultorio"
+              name="consultorioDoctor"
+            />
+            <!-- Correo -->
+            <label for="email">Correo Electronico</label>
+
+            <input
+              type="text"
+              class="email"
+              id="emailDoctor"
+              placeholder="Correo Electronico"
+              name="emailDoctor"
+            />
+            
+            <button type="submit" class="boton-formulario"  id="boton-envio-paciente" >Enviar</button>
+            <a href="/doctores"  class="boton-formulario"  >Cancelar</a> 
+
+          </form>
+        </div>
+        <div class="main-citas">
+          <h3>Citas</h3>
+          <form id="formulario-citas" action="/guardarCitas" method="post">
+            
+            
+           
+            <!-- Cedula -->
+            <label for="cedula">Cedula del paciente</label>
+            <input
+              type="text"
+              class="cedula"
+              id="cedulaCita"
+              placeholder="Cedula"
+              name="cedulaCita"
+            />
+            <!-- Especialidad -->
+            <label for="especialidad">Especialidad</label>
+            <select id="especialidadCita" name="especialidadCita" class="epecialidad">
+              <option value="especialidad">Especialidad</option>
+              <option value="medicina-general">Medicina General</option>
+              <option value="cardiologia">Cardiologia</option>
+              <option value="medicina-interna">Medicina Interna</option>
+              <option value="dermatologia">Dermatologia</option>
+              <option value="rehabilitacion-fisica">
+                Rehabilitacion Fisica
+              </option>
+              <option value="psicologia">Piscologia</option>
+              <option value="odontologia">Odontologia</option>
+              <option value="radiologia">Radiologia</option>
+            </select>
+            
+            <input type="submit" value="Enviar" id="boton-envio-cita" />
+            <a style="display: block; margin-left: 235px;" href="/citas"  class="boton-formulario"  >Cancelar</a> 
+          </form>
+        </div>
+      </div>
+    </main>
+    <hr> <hr>
+    
+    
+    
+
+     <script src="/js/scripts.js"></script>
+    
+  </body>
+</html>
